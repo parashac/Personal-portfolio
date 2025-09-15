@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from protfolio_app.models import Project
 from protfolio_app.forms import ProjectForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def protfolio(request):
     projects = Project.objects.all()
@@ -10,6 +11,7 @@ def project_list(request):
     projects = Project.objects.all()
     return render(request, 'project_list.html', {'projects': projects})
 
+@login_required
 def project_create(request):
     if request.method == "GET":
         form = ProjectForm()
@@ -22,6 +24,7 @@ def project_create(request):
             project.save()
             return redirect("project-list")
 
+@login_required
 def project_update(request, pk):
     project = Project.objects.get(pk=pk)
     form= ProjectForm(request.POST, instance=project)
@@ -33,7 +36,7 @@ def project_update(request, pk):
     return render(request, 'edit_project.html', {'form': form})
 
 
-
+@login_required
 def project_delete(request, pk):
     project = Project.objects.get(pk=pk)
     project.delete()
