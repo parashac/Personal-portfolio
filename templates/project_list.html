@@ -11,17 +11,7 @@
   <span class="material-symbols-outlined " style="vertical-align: middle">school</span>
   Bachelor in Computer Engineering
 </p>
-<div class="d-flex justify-content-center align-items-center" style="height: 3vh;">
- <a href="{% url 'project-create' %}" class="text-decoration-none text-dark">
-     <div class="card shadow-sm" style="width: 200px; height: 40px; background-color: lightblue;">
-        <div class="d-flex justify-content-center align-items-center ">
 
-        <span class="material-symbols-outlined" style="font-size: 30px;">add</span>
-
-    </div>
-  </div>
-     </a>
-</div>
 
 </div>
 
@@ -37,9 +27,11 @@
                 <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">{{ project.description|truncatechars:80 }}</p>
                 <a href="{{ project.link }}"  class="btn btn-primary">Project code</a>
-                <a href="{% url 'project-update' project.pk %}"  class="btn btn-success">Edit</a>
-                <a href="{% url 'project-delete' project.pk %}"  class="btn btn-danger">Delete</a>
-            </div>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'project-update' project.pk %}" class="btn btn-success">Edit</a>
+                    <a href="{% url 'project-delete' project.pk %}" class="btn btn-danger ">Delete</a>
+                {% endif %}
+                </div>
             <div class="card-footer text-muted">
                 {{ project.created_at|date:"M d, Y" }}
             </div>

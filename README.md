@@ -15,9 +15,6 @@ This is a simple **Personal Portfolio Web App** built using **Django** and **Boo
 
 
 
-## 📸 Screenshot
-
-[Portfolio Screenshot]<img width="1803" height="869" alt="image" src="https://github.com/user-attachments/assets/0fc4b831-765e-475b-80b2-2ac0ed61063d" />
  
 
 
