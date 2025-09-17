@@ -125,5 +125,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-DEBUG = False
-ALLOWED_HOSTS = ["parashacharya.com.np", "www.parashacharya.com.np"]
+# DEBUG = False
+# ALLOWED_HOSTS = ["parashacharya.com.np", "www.parashacharya.com.np"]
